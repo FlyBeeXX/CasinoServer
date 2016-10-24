@@ -5,6 +5,7 @@ import (
 	"errors"
 	"io"
 	"math"
+	"github.com/name5566/leaf/log"
 )
 
 // --------------
@@ -70,6 +71,9 @@ func (p *MsgParser) Read(conn *TCPConn) ([]byte, error) {
 	if _, err := io.ReadFull(conn, bufMsgLen); err != nil {
 		return nil, err
 	}
+
+	log.Debug("len msg len is: %v", p.lenMsgLen)
+	log.Debug("little endian is: %v", p.littleEndian)
 
 	// parse len
 	var msgLen uint32

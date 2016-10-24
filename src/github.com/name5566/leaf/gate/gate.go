@@ -87,6 +87,10 @@ type agent struct {
 func (a *agent) Run() {
 	for {
 		data, err := a.conn.ReadMsg()
+
+		log.Debug("tcp msg length is: %v", len(data))
+		log.Debug("tcp msg recv is: %v", data)
+
 		if err != nil {
 			log.Debug("read message: %v", err)
 			break
