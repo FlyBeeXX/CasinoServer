@@ -94,7 +94,6 @@ func (a *agent) Run() {
 
 		log.Debug("tcp msg length is: %v", len(data))
 		log.Debug("tcp msg recv is: %v", data)
-		log.Debug("a.gate.Processor: %v", a.gate.Processor)
 
 		if a.gate.Processor != nil {
 			msg, err := a.gate.Processor.Unmarshal(data)
