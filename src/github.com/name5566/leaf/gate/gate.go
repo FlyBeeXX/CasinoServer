@@ -87,17 +87,18 @@ type agent struct {
 func (a *agent) Run() {
 	for {
 		data, err := a.conn.ReadMsg()
-
-		log.Debug("tcp msg length is: %v", len(data))
-		log.Debug("tcp msg recv is: %v", data)
-
 		if err != nil {
 			log.Debug("read message: %v", err)
 			break
 		}
 
+		log.Debug("tcp msg length is: %v", len(data))
+		log.Debug("tcp msg recv is: %v", data)
+		log.Debug("a.gate.Processor: %v", a.gate.Processor)
+
 		if a.gate.Processor != nil {
 			msg, err := a.gate.Processor.Unmarshal(data)
+            log.Debug("unmarshal data msg: %v", msg)
 			if err != nil {
 				log.Debug("unmarshal message error: %v", err)
 				break
