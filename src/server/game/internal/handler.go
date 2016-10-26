@@ -22,6 +22,6 @@ func handlerRequest(args []interface{}) {
     log.Debug("request method: %v", m.Method)
 
     a.WriteMsg(&msg.ReqParams{
-        Method: "server response",
+        Method: "Server Response",
     })
 }

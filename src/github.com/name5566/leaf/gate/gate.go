@@ -6,6 +6,7 @@ import (
 	"github.com/name5566/leaf/network"
 	"reflect"
 	"time"
+    "bytes"
 )
 
 type Gate struct {
@@ -91,6 +92,9 @@ func (a *agent) Run() {
 			log.Debug("read message: %v", err)
 			break
 		}
+
+        // remove unused data 0
+        data = bytes.TrimPrefix(data, []byte{0, 0})
 
 		log.Debug("tcp msg length is: %v", len(data))
 		log.Debug("tcp msg recv is: %v", data)

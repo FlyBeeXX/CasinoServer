@@ -11,6 +11,5 @@ func init() {
 }
 
 type ReqParams struct {
-    Method string
-    Params interface{}
+    Method string `json:"method"`
 }
