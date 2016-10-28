@@ -6,5 +6,5 @@ import (
 )
 
 func init() {
-    msg.Processor.SetRouter(&msg.ReqParams{}, game.ChanRPC)
+    msg.Processor.SetRouter(&msg.Request{}, game.ChanRPC)
 }

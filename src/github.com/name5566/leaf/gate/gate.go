@@ -6,7 +6,6 @@ import (
 	"github.com/name5566/leaf/network"
 	"reflect"
 	"time"
-    "bytes"
 )
 
 type Gate struct {
@@ -93,15 +92,11 @@ func (a *agent) Run() {
 			break
 		}
 
-        // remove unused data 0
-        data = bytes.TrimPrefix(data, []byte{0, 0})
-
 		log.Debug("tcp msg length is: %v", len(data))
-		log.Debug("tcp msg recv is: %v", data)
+		log.Debug("tcp msg recv is: %v", string(data))
 
 		if a.gate.Processor != nil {
 			msg, err := a.gate.Processor.Unmarshal(data)
-            log.Debug("unmarshal data msg: %v", msg)
 			if err != nil {
 				log.Debug("unmarshal message error: %v", err)
 				break

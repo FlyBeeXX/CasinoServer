@@ -7,9 +7,10 @@ import (
 var Processor = json.NewProcessor()
 
 func init() {
-    Processor.Register(&ReqParams{})
+    Processor.Register(&Request{})
 }
 
-type ReqParams struct {
+type Request struct {
     Method string `json:"method"`
+    Params interface{} `json:"params"`
 }

@@ -8,20 +8,21 @@ import (
 )
 
 func init() {
-    handler(&msg.ReqParams{}, handlerRequest)
+    handler(&msg.Request{}, handleRequest)
 }
 
 func handler(m interface{}, h interface{}) {
     skeleton.RegisterChanRPC(reflect.TypeOf(m), h)
 }
 
-func handlerRequest(args []interface{}) {
-    m := args[0].(*msg.ReqParams)
+func handleRequest(args []interface{}) {
+    m := args[0].(*msg.Request)
     a := args[1].(gate.Agent)
 
     log.Debug("request method: %v", m.Method)
+    log.Debug("request params: %v", m.Params)
 
-    a.WriteMsg(&msg.ReqParams{
+    a.WriteMsg(&msg.Request{
         Method: "Server Response",
     })
 }
