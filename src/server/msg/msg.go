@@ -22,6 +22,6 @@ type Response struct{
     Data interface{} `json:"data"`
     Method string `json:"method"`
     Token string `json:"resp"`
-    Time string `json:"time"`
+    Time int64 `json:"time"`
     Ok int8 `json:"ok"`
 }
