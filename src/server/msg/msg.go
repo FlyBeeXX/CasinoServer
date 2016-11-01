@@ -14,9 +14,14 @@ func init() {
 type Request struct {
     Method string `json:"method"`
     Params interface{} `json:"params"`
+    Token string `json:"req"`
 }
 
 type Response struct{
-    Payload interface{}
-    Data interface{}
+    Payload interface{} `json:"payload"`
+    Data interface{} `json:"data"`
+    Method string `json:"method"`
+    Token string `json:"resp"`
+    Time string `json:"time"`
+    Ok int8 `json:"ok"`
 }
