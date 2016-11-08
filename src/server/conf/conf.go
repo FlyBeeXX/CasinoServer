@@ -18,3 +18,9 @@ var (
 	AsynCallLen        = 10000
 	ChanRPCLen         = 10000
 )
+
+var (
+	// app conf
+	ConfigVersion      = "1478500196"
+	BundleVersion      = "1.0"
+)

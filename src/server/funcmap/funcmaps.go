@@ -8,6 +8,7 @@ import (
 var (
     funcMaps = map[string]interface{} {
         "network:Test": feature.NetworkTest,
+        "manifest":feature.Manifest,
     }
 
     funcs = NewFuncs(1024)
