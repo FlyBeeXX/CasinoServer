@@ -5,6 +5,7 @@ import (
     "github.com/name5566/leaf/log"
     "server/msg"
     "server/conf"
+    "strings"
 )
 
 func Manifest(p []interface{}) {
@@ -15,10 +16,17 @@ func Manifest(p []interface{}) {
     log.Debug("FuncParams Params os: %v", m["os"])
     log.Debug("FuncParams Params client_version: %v", m["client_version"])
 
+    bundle_version := ""
+    if strings.Contains(m["os"].(string), "ios") {
+        bundle_version = conf.IOSBundleVersion
+    } else {
+        bundle_version = conf.AndroidBundleVersion
+    }
+
     app_version := struct {
         ConfigVersion string `json:"config_version"`
         BundleVersion string `json:"bundle_version"`
-    }{conf.ConfigVersion, conf.BundleVersion}
+    }{conf.ConfigVersion, bundle_version}
 
     payload := struct {
         AppVersion interface{} `json:"app_version"`
