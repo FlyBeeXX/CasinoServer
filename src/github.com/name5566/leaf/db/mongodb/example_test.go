@@ -3,7 +3,7 @@ package mongodb_test
 import (
 	"fmt"
 	"github.com/name5566/leaf/db/mongodb"
-	"github.com/gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2"
 )
 
 func Example() {

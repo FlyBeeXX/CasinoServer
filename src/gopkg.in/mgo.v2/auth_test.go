@@ -40,6 +40,7 @@ import (
 
 	. "..//check.v1"
     "..//mgo.v2"
+	"gopkg.in/mgo.v2"
 )
 
 func (s *S) TestAuthLoginDatabase(c *C) {

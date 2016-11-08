@@ -15,10 +15,14 @@ func Manifest(p []interface{}) {
     log.Debug("FuncParams Params os: %v", m["os"])
     log.Debug("FuncParams Params client_version: %v", m["client_version"])
 
-    payload := struct {
+    app_version := struct {
         ConfigVersion string `json:"config_version"`
         BundleVersion string `json:"bundle_version"`
     }{conf.ConfigVersion, conf.BundleVersion}
+
+    payload := struct {
+        AppVersion interface{} `json:"app_version"`
+    }{app_version}
 
     // response to client
     r1 := msg.Response{Payload: payload, Token: funcParams.Request.Token, Time: util.NowUTCTime(), Ok: 1}
