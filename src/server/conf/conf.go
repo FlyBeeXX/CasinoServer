@@ -21,7 +21,7 @@ var (
 
 var (
 	// app conf
-	ConfigVersion          = "1478500196"
-	IOSBundleVersion       = "1.0"
+    ConfigVersion          = "1478500196"
+    IOSBundleVersion       = "1.0"
     AndroidBundleVersion   = "1.1"
 )
